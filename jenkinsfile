@@ -5,9 +5,8 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    def mvnHome = tool 'Maven-3.8.4'
-                    sh "${mvnHome}/bin/mvn clean install"
-                    sh "${mvnHome}/bin/mvn clean package verify sonar:sonar"
+                    sh "${tool name: env.MVN_HOME, type: 'maven'}/bin/mvn clean install"
+                    sh "${tool name: env.MVN_HOME, type: 'maven'}/bin/mvn clean package verify sonar:sonar"
                     echo 'SonarQube Analysis Completed'
                 }
             }
