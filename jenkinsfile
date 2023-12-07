@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-            MVN_HOME = 'Maven-3.8.4'
+            MVN_HOME = 'mvn'
         }
     stages {
         stage('SonarQube Analysis') {
